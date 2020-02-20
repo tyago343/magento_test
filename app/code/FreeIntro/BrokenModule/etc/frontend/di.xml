@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2019 Magento. All rights reserved.
+  ~ See COPYING.txt for license details.
+  -->
+
+<!--
+    In M2 there are 3 scopes within the module - global(for system classes), frontend, adminhtml.
+    So, put your di.xml in the proper scope!
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\App\RouterList">
+        <arguments>
+            <argument name="routerList" xsi:type="array">
+                <item name="charity" xsi:type="array">
+                    <item name="class" xsi:type="string">FreeIntro\FixedModule\Controller\Router</item>
+                    <!-- Be careful working with booleans in XML!
+                         String type would works for boolean number like 0 1 but not false or true
+                         So using false/true with boolean type will be proper way-->
+                    <item name="disable" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="string">70</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>
